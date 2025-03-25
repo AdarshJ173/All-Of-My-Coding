@@ -1,0 +1,13 @@
+Write a list of five functional requirements and create a block diagram for simple student management system.
+
+-Write a list of five functional requirements
+
+1.User Authentication
+
+2.Students Information management
+
+3.Attendance Tracking
+
+4. Grade management
+
+5. Communication management

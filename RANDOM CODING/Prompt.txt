@@ -1,0 +1,13 @@
+"Analyze the given code with the following tasks:
+
+Detailed Line-by-Line Explanation:
+
+Provide a comprehensive explanation of each line using first principles thinking. Break down each component and concept thoroughly. Enhanced Readability:
+
+Add detailed and concise comments to every line or block of code to make it self-documenting. Ensure that comments clearly explain the purpose and function of each part from first principles. Rename variables and functions to be self-explanatory and contextually appropriate, enhancing the overall understanding of the program. Maintain Original Logic:
+
+Do not remove or alter any pre-existing code logic. Ensure that the modified code retains its original functionality. Complexity Analysis:
+
+Provide a detailed explanation of the time complexity and space complexity, using first principles thinking to explain how the code performs and uses resources. Output:
+
+Present the modified code with extensive comments and explanations. Conclude with a thorough analysis of the time and space complexity of the code inside the whole code in comments. and give everything in one file only."

@@ -1,0 +1,13 @@
+// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqa0FhQ1dpU0xXeFVRRHFRcUcyVmJtWWp2REVDUXxBQ3Jtc0ttd1JzTTFNaWVEVVhSR0dBYlJ3ZHdya3E1ZWFPTUtBSGRxYWNzYlZpeXdmb25jVWNnUTNqdmpmLVFTNW42TDQta2JPQ0dHbTRDb1dNcVpKcHNkeFpiNmdTQ2tLVzVvNnhPenBRRjlEUkh1aEF1UTNmdw&q=https%3A%2F%2Fwww.codingninjas.com%2Fblog%2F2020%2F07%2F25%2Fexplained-euclids-gcd-algorithm%2F&v=KdePjukNs98
+
+// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbWZyT0Yteld4ZV9ac0dMN1pYLXBBUFhJSEJhZ3xBQ3Jtc0tuRy1XSVFVdkNmNnN0T2hKQTJNZjZFUDRteG1Qc0Z4bEI5RjNTbF9XYjJzMUp2cWZEUzFNcWFTZ0F0QUJqenFrc1FxOFFoeVphYm5rbFVueEI3ZVFXRDZzMDE1NkppbFkzX25Uckx1Qjd0NlpVVmFwaw&q=https%3A%2F%2Fcodeforces.com%2Fblog%2Fentry%2F72527&v=KdePjukNs98
+
+// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbkR3NGxWYW9FN0lhS1YwQUlNeTJJM0xxYnlOQXxBQ3Jtc0tsWUM1Q0xSeElIeTYwMVhXWU94LTh3blUwV3BOeVUxQ3hMTXhuWndmNnRWNTk2VHJwV2tmN2w0dG1EbE9aQXNVSks5UGZvdTN0NVBQRlVQcmkxbXNKQTdRRzdXdnM5WnJIWHNHbkhPZENWVlNzX3ZiNA&q=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1loIOO_WWechujjzOcZz31ax2-FObjVvJ%2Fview%3Fusp%3Dsharing&v=KdePjukNs98
+
+// https://www.youtube.com/redirect?event=video_description&redir_token=QUFFLUhqbjVTeGJPTWxvUXRoY0doX096b0tRR3FXZXRLQXxBQ3Jtc0tuZXMyc21uSW5SX0E4czBOdnFOdXNoT25hdVBMTEppUXdnTV9FSWlTeXpUUFBjZWRwRW5kMUJka2M4TVE4N2p4SG5EYWhETU5nY3lGMGZHbll4UmlTQVdxZVBhZi1rbnV3ZF9MZmZhcWhEcGxYZktjOA&q=https%3A%2F%2Fgithub.com%2FloveBabbar%2FCodeHelp-DSA-Busted-Series&v=KdePjukNs98
+
+//Pigeonhole principle
+//Catalon number
+// inclusion-exclusion principle
+
+//factorial of number - 212%m , m = 10^9+7

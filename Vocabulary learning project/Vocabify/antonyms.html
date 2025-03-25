@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Antonyms Quiz</title>
+</head>
+<body>
+    <header>
+        <h1>Antonyms Quiz</h1>
+    </header>
+    <main>
+        <div id="quiz-container"></div>
+        <button id="next-button" style="display: none;">Next Question</button>
+    </main>
+    <script src="script.js"></script>
+    <script>
+        let currentQuestionIndex = 0;
+        let questions = [];
+
+        // Function to display quiz questions
+        function displayQuiz(questions) {
+            const quizContainer = document.getElementById('quiz-container');
+            quizContainer.innerHTML = '';
+
+            if (currentQuestionIndex < questions.length) {
+                const question = questions[currentQuestionIndex];
+                const questionElement = document.createElement('div');
+                questionElement.innerHTML = `<h2>${question.question}</h2>`;
+                
+                question.options.forEach((option, index) => {
+                    const optionElement = document.createElement('button');
+                    optionElement.innerText = option;
+                    optionElement.onclick = () => checkAnswer(option, question.answer);
+                    questionElement.appendChild(optionElement);
+                });
+
+                quizContainer.appendChild(questionElement);
+            } else {
+                quizContainer.innerHTML = '<h2>Quiz Completed!</h2>';
+            }
+        }
+
+        // Function to check the selected answer
+        function checkAnswer(selected, correct) {
+            const quizContainer = document.getElementById('quiz-container');
+            if (selected === correct) {
+                quizContainer.innerHTML += '<p style="color: green;">Correct!</p>';
+            } else {
+                quizContainer.innerHTML += `<p style="color: red;">Wrong! The correct answer is ${correct}.</p>`;
+            }
+            document.getElementById('next-button').style.display = 'block';
+        }
+
+        // Event listener for the next button
+        document.getElementById('next-button').onclick = () => {
+            currentQuestionIndex++;
+            displayQuiz(questions);
+            document.getElementById('next-button').style.display = 'none';
+        };
+
+        // Fetch questions and start the quiz
+        document.addEventListener('DOMContentLoaded', async () => {
+            questions = await fetchData('xl files/antonyms.xlsx');
+            displayQuiz(questions);
+        });
+    </script>
+</body>
+</html> 

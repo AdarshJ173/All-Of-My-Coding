@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <head>
+            <title>A.Adarsh Portfolio</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Finlandica:ital,wght@1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    </head>
+
+    <body>
+
+
+        <!-- ---------------1----------------- -->
+
+        <section class="Sub-header">
+
+            <nav>
+                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="FriendsFamily.html">Family & Friends</a></li>
+                        <li><a href="Skills.html">Skills</a></li>
+                        <li><a href="Education.html">Education</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Me.html">Me</a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+           <h1>Contact Me</h1>
+
+        </section>
+
+
+        <!-- --------------------------contact us----------------- -->
+
+
+        <section class="location">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3786.872292127617!2d81.87972381697045!3d18.353109744974866!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a30932e74cb22d3%3A0x8daa96766f1d957d!2sNew%20Alankar%20Jewellers!5e0!3m2!1sen!2sin!4v1656837519861!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </section>
+     
+
+        <section class="contact-us">
+            <div class="row">
+                <div class="contact-col">
+                    <i><img src="images/home.png" alt=""></i>
+                    <span>
+                        <h5>Dnk Road, New Alankar Jwellers</h5>
+                        <p>Malkangiri, Odisha</p>
+                    </span>
+                </div>
+                <div class="contact-col">
+                    <i><img src="images/phone-call.png" alt=""></i>
+                    <span>
+                        <h5>7326988411</h5>
+                        <p>Available on holidays for now, msg me anytime</p>
+                    </span>
+                </div>
+                <div class="contact-col">
+                    <i><img src="images/email.png" alt=""></i>
+                    <span>
+                        <h5>adarshjagannath777@gmail.com</h5>
+                        <p>Email me your feedback on this portfolio,</p>
+                    </span>
+                </div>
+                <div class="contact-col">
+
+                    <form action="https://formspree.io/f/mwkydedw" method="POST"  method="post">
+                        <input type="text" name="name" placeholder="Type Your Name" required>
+                        <input type="email" name="email" placeholder="Type Your Email Address" required>
+                        <textarea  rows="10" name="message" placeholder="Write Your opinion on this portfolio" required></textarea>
+                        <button type="submit" class="hero-btn red-btn">Send Message</button>
+                    </form>
+
+
+
+
+                </div>
+            </div>
+        </section>
+       
+        <!-- ---------------------------fotter------------ -->
+
+        <section class="footer">
+            <h4>AboutUs</h4>
+            <p>Hope You Liked My Portfolio</p>
+
+            <p>Made By A.Adarsh Jagannath</p>
+        </section>
+
+
+        <!-- ------------------------------------------------------------ -->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                 navLinks.style.right = "0";
+
+            }
+            function hideMenu(){
+                 navLinks.style.right = "1000px";
+                 
+            }
+        </script>
+    
+    </body>
+</html>

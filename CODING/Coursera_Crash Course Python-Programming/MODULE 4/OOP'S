@@ -1,0 +1,382 @@
+# Why use OOP in Python?
+# Object-Oriented Programming (OOP) is a method based on the concept of "objects" which can contain data and code:
+# data in the form of fields (attributes or properties), and code in the form of procedures (methods).
+
+# Benefits of OOP:
+# 1. Modularity: The source code for an object can be written and maintained independently of the source code for other objects.
+# 2. Reusability: Objects can be reused across different programs.
+# 3. Scalability: OOP systems can be scaled more easily.
+# 4. Maintainability: Easier to maintain and modify existing code.
+
+# Key OOP Concepts:
+# 1. Class: A blueprint for creating objects.
+# 2. Object: An instance of a class.
+# 3. Encapsulation: Bundling of data and methods that operate on the data within one unit.
+# 4. Inheritance: Mechanism to create a new class using details of an existing class without modifying it.
+# 5. Polymorphism: Ability to process objects differently based on their data type or class.
+# 6. Abstraction: Hiding complex implementation details and showing only the necessary features of an object.
+
+# Let's start by explaining the key components of OOP in Python from first principles:
+
+# 1. Class:
+# A class is a blueprint for creating objects. It defines a set of attributes and methods that the created objects will have.
+
+# Example:
+class Animal:
+    # The 'class' keyword is used to define a new class.
+    # 'Animal' is the name of the class.
+    pass  # 'pass' is a placeholder that means "do nothing".
+
+# 2. Object:
+# An object is an instance of a class. When a class is defined, no memory is allocated until an object of that class is created.
+
+# Example:
+dog = Animal()  # Creating an object of the class 'Animal'. 'dog' is now an instance of 'Animal'.
+
+# 3. __init__ Method:
+# The __init__ method is a special method (also known as a constructor) that is called when an object is instantiated.
+# It initializes the object's attributes.
+
+# Example:
+class Animal:
+    def __init__(self, name, species):
+        self.name = name  # 'self.name' refers to the instance's attribute.
+        self.species = species  # 'self.species' refers to the instance's attribute.
+
+# Creating an object with attributes
+dog = Animal("Dog", "Canine")
+
+# 4. self:
+# 'self' is a reference to the current instance of the class. It is used to access variables and methods associated with the current object.
+
+# Example:
+class Animal:
+    def __init__(self, name, species):
+        self.name = name  # 'self' is used to bind the attribute 'name' to the instance.
+        self.species = species  # 'self' is used to bind the attribute 'species' to the instance.
+    
+    def make_sound(self):
+        return f"{self.name} makes a sound."  # 'self.name' refers to the current instance's name attribute.
+
+# Creating an object and calling a method
+dog = Animal("lara", "Canine")
+print(dog.make_sound())  # Output: Dog makes a sound.
+
+class Human:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+    def sayMyName(self):
+        return f"My name is {self.name}"
+    def sayMyAge(self):
+        return f"I am {self.age} years old"
+
+Human007 = Human("Adarsh",18)
+print(Human007.sayMyName())  # Output: My name is Adarsh
+print(Human007.sayMyAge())  # Output: I am 18 years old
+
+# 5. Encapsulation:
+# Encapsulation is the bundling of data and methods that operate on the data within one unit (class), and restricting access to some of the object's components.
+
+# Example:
+class Person:
+    def __init__(self, name, age):
+        self.__name = name  # '__name' is a private attribute.
+        self.__age = age  # '__age' is a private attribute.
+    
+    def get_name(self):
+        return self.__name  # Public method to access the private attribute '__name'.
+    
+    def set_age(self, age):
+        if age > 0:
+            self.__age = age  # Public method to modify the private attribute '__age'.
+        else:
+            print("Invalid age")
+
+# Creating an object and accessing encapsulated data
+person = Person("Alice", 30)
+print(person.get_name())  # Output: Alice
+person.set_age(35)
+
+# 6. Inheritance:
+# Inheritance is a mechanism where a new class is derived from an existing class. The new class inherits attributes and methods from the existing class.
+
+# Example:
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def make_sound(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof"
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow"
+
+# Creating objects and demonstrating inheritance
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+print(dog.make_sound())  # Output: Woof
+print(cat.make_sound())  # Output: Meow
+
+# 7. Polymorphism:
+# Polymorphism allows objects of different classes to be treated as objects of a common super class. It is the ability to process objects differently based on their data type or class.
+
+# Example:
+def animal_sound(animal):
+    print(animal.make_sound())
+
+# Demonstrating polymorphism
+animal_sound(dog)  # Output: Woof
+animal_sound(cat)  # Output: Meow
+
+# 8. Abstraction:
+# Abstraction is the concept of hiding the complex implementation details and showing only the necessary features of an object.
+
+# Example:
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+# Creating an object and demonstrating abstraction
+rectangle = Rectangle(5, 10)
+print(rectangle.area())  # Output: 50
+print(rectangle.perimeter())  # Output: 30
+
+# 9. Advanced OOP Concepts - Multiple Inheritance:
+# Multiple inheritance is a feature where a class can inherit attributes and methods from more than one parent class.
+
+# Example:
+class A:
+    def method_a(self):
+        print("Method A")
+
+class B:
+    def method_b(self):
+        print("Method B")
+
+class C(A, B):
+    def method_c(self):
+        print("Method C")
+
+# Creating an object and demonstrating multiple inheritance
+c = C()
+c.method_a()  # Output: Method A
+c.method_b()  # Output: Method B
+c.method_c()  # Output: Method C
+
+# 10. Advanced OOP Concepts - Method Overriding:
+# Method overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+
+# Example:
+class Animal:
+    def make_sound(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof"
+
+# Creating an object and demonstrating method overriding
+dog = Dog()
+print(dog.make_sound())  # Output: Woof
+
+# 11. Advanced OOP Concepts - Operator Overloading:
+# Operator overloading allows you to define custom behavior for operators when they are used with user-defined classes.
+
+# Example:
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+# Creating objects and demonstrating operator overloading
+v1 = Vector(2, 3)
+v2 = Vector(3, 4)
+v3 = v1 + v2
+print(v3)  # Output: Vector(5, 7)
+
+# These examples and explanations cover the basic to advanced concepts of OOP in Python,
+# progressively building on the previous concepts and demonstrating their usage in simple, concise code.
+
+
+# Example 1: Basic OOP concepts
+
+# Defining a class
+class Animal:
+    def __init__(self, name, species):
+        self.name = name  # Attribute
+        self.species = species  # Attribute
+    
+    def make_sound(self):  # Method
+        return f"{self.name} makes a sound."
+
+# Creating an object (instance of the class)
+dog = Animal("Dog", "Canine")
+print(dog.make_sound())  # Output: Dog makes a sound.
+
+# Example 2: Encapsulation
+class Person:
+    def __init__(self, name, age):
+        self.__name = name  # Private attribute
+        self.__age = age  # Private attribute
+    
+    def get_name(self):  # Getter method
+        return self.__name
+    
+    def set_age(self, age):  # Setter method
+        if age > 0:
+            self.__age = age
+        else:
+            print("Invalid age")
+
+# Encapsulation in action
+person = Person("Alice", 30)
+print(person.get_name())  # Output: Alice
+person.set_age(35)
+
+# Example 3: Inheritance
+class Animal:
+    def __init__(self, name):
+        self.name = name
+    
+    def make_sound(self):
+        raise NotImplementedError("Subclass must implement abstract method")
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof"
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow"
+
+# Inheritance in action
+dog = Dog("Buddy")
+cat = Cat("Whiskers")
+print(dog.make_sound())  # Output: Woof
+print(cat.make_sound())  # Output: Meow
+
+# Example 4: Polymorphism
+def animal_sound(animal):
+    print(animal.make_sound())
+
+# Polymorphism in action
+animal_sound(dog)  # Output: Woof
+animal_sound(cat)  # Output: Meow
+
+# Example 5: Abstraction
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        pass
+
+class Rectangle(Shape):
+    def __init__(self, width, height):
+        self.width = width
+        self.height = height
+    
+    def area(self):
+        return self.width * self.height
+    
+    def perimeter(self):
+        return 2 * (self.width + self.height)
+
+# Abstraction in action
+rectangle = Rectangle(5, 10)
+print(rectangle.area())  # Output: 50
+print(rectangle.perimeter())  # Output: 30
+
+# Example 6: Advanced OOP Concepts - Multiple Inheritance
+class A:
+    def method_a(self):
+        print("Method A")
+
+class B:
+    def method_b(self):
+        print("Method B")
+
+class C(A, B):
+    def method_c(self):
+        print("Method C")
+
+# Multiple Inheritance in action
+c = C()
+c.method_a()  # Output: Method A
+c.method_b()  # Output: Method B
+c.method_c()  # Output: Method C
+
+# Example 7: Advanced OOP Concepts - Method Overriding
+class Animal:
+    def make_sound(self):
+        return "Some sound"
+
+class Dog(Animal):
+    def make_sound(self):
+        return "Woof"
+
+# Method Overriding in action
+dog = Dog()
+print(dog.make_sound())  # Output: Woof
+
+# Example 8: Advanced OOP Concepts - Operator Overloading
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    
+    def __add__(self, other):
+        return Vector(self.x + other.x, self.y + other.y)
+    
+    def __repr__(self):
+        return f"Vector({self.x}, {self.y})"
+
+# Operator Overloading in action
+v1 = Vector(2, 3)
+v2 = Vector(3, 4)
+v3 = v1 + v2
+print(v3)  # Output: Vector(5, 7)
+
+# These examples cover the basics to advanced concepts of OOP in Python.
+# Each example progressively builds on the previous one, introducing new concepts and demonstrating their usage in simple, concise code.
+
+class Myclass:
+    x = 5
+
+p1 = Myclass()
+print(p1.x)
+

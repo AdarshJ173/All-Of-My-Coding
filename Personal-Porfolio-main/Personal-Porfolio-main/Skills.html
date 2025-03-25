@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <head>
+            <title>A.Adarsh Portfolio</title>
+            <link rel="stylesheet" href="style.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Finlandica:ital,wght@1,400;1,500;1,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/fontawesome.min.css">
+    </head>
+
+    <body>
+
+
+        <!-- ---------------1----------------- -->
+
+        <section class="Sub-header">
+
+            <nav>
+                <a href="index.html"><img src="images/logo.png" alt="logo"></a>
+                <div class="nav-links" id="navLinks">
+                    <i class="fa-solid fa-xmark" onclick="hideMenu()"></i>
+
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="FriendsFamily.html">Family & Friends</a></li>
+                        <li><a href="Skills.html">Skills</a></li>
+                        <li><a href="Education.html">Education</a></li>
+                        <li><a href="About.html">About</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                        <li><a href="Me.html">Me</a></li>
+                    </ul>
+                </div>
+                <i class="fa-solid fa-bars" onclick="showMenu()"></i>
+            </nav>
+
+           <h1>About Us</h1>
+
+        </section>
+
+
+        <section class="skill">
+            <h1>My Skills</h1>
+            <p>To know more deatily about my skill's go to Skills page</p>
+
+            <div class="row">
+                <div class="skill-col">
+                    <h3>coding</h3>
+                    <p>I've started to learn coading in lockdown in 2020 to gain a skill and pass my time, 
+                         gradually i gained interset on it and i kept learning it from different platforms a lot of different things.</p>
+                </div>
+                <div class="skill-col">
+                    <h3>Gaming</h3>
+                    <p>I've started to learn coading in lockdown in 2020 to gain a skill and pass my time, 
+                         gradually i gained interset on it and i kept learning it from different platforms a lot of different things.</p>  
+                </div>
+                <div class="skill-col">
+                    <h3>Guitar</h3>
+                    <p>I've started to learn coading in lockdown in 2020 to gain a skill and pass my time, 
+                         gradually i gained interset on it and i kept learning it from different platforms a lot of different things.</p>
+                </div>
+            </div>
+        </section>
+
+
+       
+        <!-- ---------------------------fotter------------ -->
+
+        <section class="footer">
+            <h4>AboutUs</h4>
+            <p>Hope You Liked My Portfolio</p>
+
+            <p>Made By A.Adarsh Jagannath</p>
+        </section>
+
+
+        <!-- ------------------------------------------------------------ -->
+        <script>
+            var navLinks = document.getElementById("navLinks");
+            function showMenu(){
+                 navLinks.style.right = "0";
+
+            }
+            function hideMenu(){
+                 navLinks.style.right = "1000px";
+                 
+            }
+        </script>
+    
+    </body>
+</html>

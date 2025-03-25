@@ -1,0 +1,28 @@
+print("Welcome to Car Component Manager")
+print('')
+car_component = ["Engine","Transmission","Brakes","Suspension","Battery","Wheels","Seats","Steering","Airbags"]
+print("")
+for i in car_component:
+    print(i)
+print("")
+print("Car component : ", car_component)
+print("")
+car_component.remove("Battery")
+print("Car components after removing battery : ", car_component)
+print("")
+del car_component[3]
+print("Car component after removing the element of index 3 : ", car_component)
+print("")
+car_component.clear()
+print("Car component after clear : ", car_component)
+print("")
+car_component.append('Navigation system')
+print("Car component after adding navigation system : ", car_component)
+car_component.insert(0,"Dashboard")
+print("")
+print("Car component after adding dashboard : ", car_component)
+print("")
+print("Index of Dashboard is ",car_component.index("Dashboard"))
+print("")
+del car_component[0]
+print("Car component after adding deleting the element of index 0 : ", car_component)

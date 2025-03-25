@@ -1,0 +1,82 @@
+**Question 1**
+
+What is a computer program?
+
+A. The syntax and semantics of a programming language.  
+B. A file that gets printed by the Python interpreter.  
+C. The overview of what the computer will have to do to solve an automation problem.  
+D. Step-by-step instructions on how to complete a set of tasks, to be executed by a computer.
+
+Answer: 
+
+---
+
+**Question 2**
+
+Which of the following are true about programming languages? Select all that apply.
+
+A. Similar to human language, programming languages use syntax and semantics.  
+B. Programming languages are used to write computer programs and scripts.  
+C. Programming languages is a synonym for pseudocode.  
+D. Some common programming languages include Python, Java, C, C++, C#, and R.
+
+Answer: 
+
+
+---
+
+**Question 3**
+
+What are some of the benefits of automation? Select all that apply.
+
+A. Consistency  
+B. More cost-effective for complex, seldom-done tasks  
+C. Doesn’t get tired  
+D. Can accomplish creative tasks
+
+Answer: 
+
+
+---
+
+**Question 4**
+
+What is the term for the set of rules for how statements are constructed in a programming language?
+
+A. Syntax  
+B. Semantics  
+C. Grammar  
+D. Format
+
+Answer: 
+
+
+---
+
+**Question 5**
+
+What is a property of Python that makes it easier to understand than some other programming languages?
+
+A. You can use Python code in any other language.  
+B. Basic guidelines can be given and it will write the code.  
+C. Code is similar to the English language.  
+D. Python doesn’t have a defined syntax.
+
+Answer: 
+
+
+---
+
+**Question 6**
+
+Which Python function will output text, or other value, to the screen?
+
+A. echo  
+B. print()  
+C. output()  
+D. console.out
+
+Answer: 
+
+
+---

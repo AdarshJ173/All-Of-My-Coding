@@ -1,0 +1,312 @@
+import tkinter as tk
+from tkinter import messagebox, simpledialog
+from sympy import Matrix, symbols, Eq, linsolve
+
+
+class MatrixCalculatorApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Matrix Operations")
+        self.root.geometry("800x700")
+
+        # Initialize variables
+        self.matrix = []
+        self.matrix_2 = []  # For second matrix in multiplication
+        self.equations = []  # For storing linear equations
+
+        # Create the interface
+        self.create_input_form()
+
+    def create_input_form(self):
+        """Creates the form for matrix input with enhanced layout."""
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        # Instructions Label
+        self.instructions_label = tk.Label(self.input_frame, text="Enter matrix/equation details:", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        # Matrix or Equation option
+        self.option_label = tk.Label(self.input_frame, text="Select operation:", font=("Arial", 12), bg="#f0f0f0")
+        self.option_label.grid(row=1, column=0, pady=10)
+        
+        self.operation = tk.StringVar(value="matrix")
+        self.matrix_radio = tk.Radiobutton(self.input_frame, text="Matrix Operations", variable=self.operation, value="matrix", font=("Arial", 12), bg="#f0f0f0")
+        self.matrix_radio.grid(row=2, column=0, pady=5)
+        self.equation_radio = tk.Radiobutton(self.input_frame, text="Linear Equation", variable=self.operation, value="equation", font=("Arial", 12), bg="#f0f0f0")
+        self.equation_radio.grid(row=3, column=0, pady=5)
+
+        # Button to proceed
+        self.proceed_button = tk.Button(self.input_frame, text="Proceed", font=("Arial", 12), command=self.proceed, bg="#4CAF50", fg="white", width=20)
+        self.proceed_button.grid(row=4, column=0, columnspan=2, pady=20)
+
+    def proceed(self):
+        """Process the user's operation choice and move to the relevant input screen."""
+        operation = self.operation.get()
+        if operation == "matrix":
+            self.create_matrix_input_form()
+        elif operation == "equation":
+            self.create_equation_input_form()
+
+    def create_matrix_input_form(self):
+        """Create matrix input form."""
+        self.input_frame.destroy()  # Destroy previous UI
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Enter matrix size (rows and columns):", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        self.rows_label = tk.Label(self.input_frame, text="Rows:", font=("Arial", 12), bg="#f0f0f0")
+        self.rows_label.grid(row=1, column=0)
+        self.rows_entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+        self.rows_entry.grid(row=1, column=1)
+
+        self.cols_label = tk.Label(self.input_frame, text="Columns:", font=("Arial", 12), bg="#f0f0f0")
+        self.cols_label.grid(row=2, column=0)
+        self.cols_entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+        self.cols_entry.grid(row=2, column=1)
+
+        self.submit_button = tk.Button(self.input_frame, text="Submit", font=("Arial", 12), command=self.submit_matrix_size, bg="#4CAF50", fg="white", width=20)
+        self.submit_button.grid(row=3, column=0, columnspan=2, pady=20)
+
+    def submit_matrix_size(self):
+        """Submit matrix size and take matrix input."""
+        try:
+            rows = int(self.rows_entry.get())
+            cols = int(self.cols_entry.get())
+            self.rows = rows
+            self.cols = cols
+            self.input_matrix(rows, cols)
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter valid row and column numbers.")
+
+    def input_matrix(self, rows, cols):
+        """Create a form for matrix input."""
+        self.input_frame.destroy()  # Destroy previous UI
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Enter matrix values:", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        self.matrix = []
+        for i in range(rows):
+            row = []
+            for j in range(cols):
+                label = tk.Label(self.input_frame, text=f"Cell ({i + 1}, {j + 1}):", font=("Arial", 12), bg="#f0f0f0")
+                label.grid(row=i + 1, column=j * 2)
+                entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+                entry.grid(row=i + 1, column=j * 2 + 1)
+                row.append(entry)
+            self.matrix.append(row)
+
+        self.submit_button = tk.Button(self.input_frame, text="Submit Matrix", font=("Arial", 12), command=self.submit_matrix, bg="#4CAF50", fg="white", width=20)
+        self.submit_button.grid(row=rows + 1, column=0, columnspan=2, pady=20)
+
+    def submit_matrix(self):
+        """Store matrix values and show options for matrix operations."""
+        try:
+            matrix_values = []
+            for i in range(self.rows):
+                row = []
+                for j in range(self.cols):
+                    row.append(float(self.matrix[i][j].get()))
+                matrix_values.append(row)
+            self.matrix = matrix_values
+
+            # Show options for matrix operations
+            self.show_matrix_operations()
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter valid matrix values.")
+
+    def show_matrix_operations(self):
+        """Show operations like determinant, rank, eigenvalues, and multiplication."""
+        self.input_frame.destroy()  # Destroy previous UI
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Select matrix operation:", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        # Operation buttons
+        self.determinant_button = tk.Button(self.input_frame, text="Determinant", font=("Arial", 12), command=self.determinant, bg="#4CAF50", fg="white", width=20)
+        self.determinant_button.grid(row=1, column=0, pady=10)
+
+        self.rank_button = tk.Button(self.input_frame, text="Rank", font=("Arial", 12), command=self.rank, bg="#4CAF50", fg="white", width=20)
+        self.rank_button.grid(row=2, column=0, pady=10)
+
+        self.eigenvalue_button = tk.Button(self.input_frame, text="Eigenvalues", font=("Arial", 12), command=self.eigenvalues, bg="#4CAF50", fg="white", width=20)
+        self.eigenvalue_button.grid(row=3, column=0, pady=10)
+
+        self.multiply_button = tk.Button(self.input_frame, text="Matrix Multiplication", font=("Arial", 12), command=self.ask_for_second_matrix, bg="#4CAF50", fg="white", width=20)
+        self.multiply_button.grid(row=4, column=0, pady=10)
+
+        self.solve_button = tk.Button(self.input_frame, text="Solve Linear Equation", font=("Arial", 12), command=self.create_equation_input_form, bg="#4CAF50", fg="white", width=20)
+        self.solve_button.grid(row=5, column=0, pady=10)
+
+    def determinant(self):
+        """Calculate and display determinant of the matrix."""
+        try:
+            matrix = Matrix(self.matrix)
+            result = matrix.det()
+            self.display_result(f"Determinant: {round(result, 2)}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error calculating determinant: {e}")
+
+    def rank(self):
+        """Calculate and display rank of the matrix."""
+        try:
+            matrix = Matrix(self.matrix)
+            result = matrix.rank()
+            self.display_result(f"Rank: {result}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error calculating rank: {e}")
+
+    def eigenvalues(self):
+        """Calculate and display eigenvalues of the matrix."""
+        try:
+            matrix = Matrix(self.matrix)
+            result = matrix.eigenvals()
+            result = {key: round(value, 2) for key, value in result.items()}
+            self.display_result(f"Eigenvalues: {result}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error calculating eigenvalues: {e}")
+
+    def ask_for_second_matrix(self):
+        """Ask for second matrix for multiplication."""
+        self.input_frame.destroy()  # Destroy previous UI
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Enter second matrix size (rows and columns):", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        self.rows_label = tk.Label(self.input_frame, text="Rows:", font=("Arial", 12), bg="#f0f0f0")
+        self.rows_label.grid(row=1, column=0)
+        self.rows_entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+        self.rows_entry.grid(row=1, column=1)
+
+        self.cols_label = tk.Label(self.input_frame, text="Columns:", font=("Arial", 12), bg="#f0f0f0")
+        self.cols_label.grid(row=2, column=0)
+        self.cols_entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+        self.cols_entry.grid(row=2, column=1)
+
+        self.submit_button = tk.Button(self.input_frame, text="Submit", font=("Arial", 12), command=self.submit_second_matrix, bg="#4CAF50", fg="white", width=20)
+        self.submit_button.grid(row=3, column=0, columnspan=2, pady=20)
+
+    def submit_second_matrix(self):
+        """Submit second matrix and perform multiplication."""
+        try:
+            rows = int(self.rows_entry.get())
+            cols = int(self.cols_entry.get())
+            self.matrix_2 = []
+
+            # Input second matrix values
+            self.input_second_matrix(rows, cols)
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter valid matrix size.")
+
+    def input_second_matrix(self, rows, cols):
+        """Create a form for the second matrix input."""
+        self.input_frame.destroy()
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Enter second matrix values:", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        self.matrix_2 = []
+        for i in range(rows):
+            row = []
+            for j in range(cols):
+                label = tk.Label(self.input_frame, text=f"Cell ({i + 1}, {j + 1}):", font=("Arial", 12), bg="#f0f0f0")
+                label.grid(row=i + 1, column=j * 2)
+                entry = tk.Entry(self.input_frame, font=("Arial", 12), width=10)
+                entry.grid(row=i + 1, column=j * 2 + 1)
+                row.append(entry)
+            self.matrix_2.append(row)
+
+        self.submit_button = tk.Button(self.input_frame, text="Submit Matrix", font=("Arial", 12), command=self.submit_second_matrix_values, bg="#4CAF50", fg="white", width=20)
+        self.submit_button.grid(row=rows + 1, column=0, columnspan=2, pady=20)
+
+    def submit_second_matrix_values(self):
+        """Multiply matrices and show result."""
+        try:
+            matrix_2_values = []
+            for i in range(len(self.matrix_2)):
+                row = []
+                for j in range(len(self.matrix_2[i])):
+                    row.append(float(self.matrix_2[i][j].get()))
+                matrix_2_values.append(row)
+
+            # Perform matrix multiplication
+            matrix_a = Matrix(self.matrix)
+            matrix_b = Matrix(matrix_2_values)
+
+            if matrix_a.cols != matrix_b.rows:
+                messagebox.showerror("Error", "Incompatible matrix dimensions for multiplication.")
+                return
+
+            result = matrix_a * matrix_b
+            result_rounded = [[round(value, 2) for value in row] for row in result.tolist()]
+
+            self.display_result(f"Multiplication Result: {result_rounded}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error in matrix multiplication: {e}")
+
+    def create_equation_input_form(self):
+        """Create a form to input linear equations."""
+        self.input_frame.destroy()  # Destroy previous UI
+
+        self.input_frame = tk.Frame(self.root, bg="#f0f0f0")
+        self.input_frame.pack(pady=30, padx=20, fill="both", expand=True)
+
+        self.instructions_label = tk.Label(self.input_frame, text="Enter linear equations:", font=("Arial", 14), bg="#f0f0f0")
+        self.instructions_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+        self.equation_inputs = []
+        self.num_equations = simpledialog.askinteger("Input", "Enter number of equations:", minvalue=1)
+
+        for i in range(self.num_equations):
+            label = tk.Label(self.input_frame, text=f"Equation {i + 1}:", font=("Arial", 12), bg="#f0f0f0")
+            label.grid(row=i + 1, column=0, pady=5)
+            equation_entry = tk.Entry(self.input_frame, font=("Arial", 12), width=20)
+            equation_entry.grid(row=i + 1, column=1, pady=5)
+            self.equation_inputs.append(equation_entry)
+
+        self.submit_button = tk.Button(self.input_frame, text="Solve Equations", font=("Arial", 12), command=self.solve_linear_equations, bg="#4CAF50", fg="white", width=20)
+        self.submit_button.grid(row=self.num_equations + 1, column=0, columnspan=2, pady=20)
+
+    def solve_linear_equations(self):
+        """Solve the system of linear equations."""
+        try:
+            equations = []
+            variables = []
+
+            for eq_input in self.equation_inputs:
+                equation_str = eq_input.get()
+                variables = list(symbols(f"x1 x2 x3 x4"))
+                eq = Eq(eval(equation_str), 0)
+                equations.append(eq)
+
+            result = linsolve(equations, *variables)
+            self.display_result(f"Solution: {result}")
+        except Exception as e:
+            messagebox.showerror("Error", f"Error solving equations: {e}")
+
+    def display_result(self, result):
+        """Display the result in the UI."""
+        self.result_label = tk.Label(self.input_frame, text=result, font=("Arial", 14), bg="#f0f0f0")
+        self.result_label.grid(row=0, column=0, columnspan=2, pady=10)
+
+
+# Create the main window
+root = tk.Tk()
+app = MatrixCalculatorApp(root)
+root.mainloop()

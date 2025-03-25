@@ -1,0 +1,60 @@
+<mxfile host="65bd71144e">
+    <diagram id="dcrvmBp_1K8HJ01QsN7x" name="Page-1">
+        <mxGraphModel dx="1657" dy="1254" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="#ffffff" math="0" shadow="1">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="8" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=22;fontColor=#000000;strokeColor=#000000;strokeWidth=3;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="2" target="4">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;font color=&quot;#000000&quot; style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;start&lt;/b&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#36393d;strokeWidth=3;rounded=0;shadow=1;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="100" width="150" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;END&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;strokeWidth=3;rounded=0;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;shadow=1;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="806" width="151" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="4" target="5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;&quot;ENTER YOUR MONTHLY INCOME&quot;&lt;br&gt;GET I&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeColor=#36393d;strokeWidth=3;fillColor=#cce5ff;rounded=0;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;shadow=1;labelBackgroundColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="249" y="246" width="352" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="5" target="6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;&quot;ENTER YOUR MONTHLY EXPENSES&quot;&lt;br&gt;GET A&lt;br&gt;&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeColor=#36393d;strokeWidth=3;fillColor=#ffff88;rounded=0;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;shadow=1;" vertex="1" parent="1">
+                    <mxGeometry x="248" y="393" width="355" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="6" target="7">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;SAVINGS &amp;lt;-- I - A&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="whiteSpace=wrap;html=1;strokeColor=#36393d;strokeWidth=3;fillColor=#cdeb8b;rounded=0;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;shadow=1;" vertex="1" parent="1">
+                    <mxGeometry x="315" y="530" width="220" height="94" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="7" target="3">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" style="edgeStyle=none;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" source="7">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="670.008544921875" y="734.5" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="&lt;font color=&quot;#000000&quot;&gt;&lt;span style=&quot;font-size: 22px;&quot;&gt;&lt;b&gt;PUT &quot;YOUR MONTHLY SAVINGS ARE&quot; + SAVINGS&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;strokeColor=#36393d;strokeWidth=3;fillColor=#ffcccc;rounded=0;fillStyle=solid;sketch=1;curveFitting=1;jiggle=2;shadow=1;" vertex="1" parent="1">
+                    <mxGeometry x="227" y="675" width="396" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;entryX=0;entryY=0.25;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" target="4">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="173" y="268" as="sourcePoint"/>
+                        <mxPoint x="230" y="258" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="" style="endArrow=classic;html=1;strokeColor=#000000;strokeWidth=3;fontSize=22;fontColor=#000000;entryX=0;entryY=0.25;entryDx=0;entryDy=0;sketch=1;curveFitting=1;jiggle=2;rounded=0;shadow=1;" edge="1" parent="1" target="5">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="185" y="415" as="sourcePoint"/>
+                        <mxPoint x="249" y="412" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

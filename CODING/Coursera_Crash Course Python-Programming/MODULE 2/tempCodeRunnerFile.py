@@ -1,0 +1,5 @@
+print(j)
+# print(type(j))
+# j = str(j)
+# print(j)
+# print(type(j))

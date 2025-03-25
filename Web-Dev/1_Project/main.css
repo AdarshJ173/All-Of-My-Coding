@@ -1,0 +1,110 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    min-height: 100vh;
+    background-image: url('assets/bg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden; /* Hide scrollbar */
+}
+
+.logo{
+    width: 70px;
+    margin-right: auto;
+    border-radius: 20%;
+    cursor: pointer;
+}
+
+nav{
+    background-color: rgb(0, 0, 0);
+    box-shadow: 4px 4px 7px rgba(0, 0, 0,0.3);
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+}
+
+nav li{
+    height: 50px;
+    font-size: large;
+    font-weight: bolder;
+}
+
+nav a{
+    height: 100%;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+    transition: background-color 0.4s ease-in-out, 
+                box-shadow 0.4s ease-in-out, 
+                transform 0.4s ease-in-out;
+}
+
+nav a:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2%;
+    transform: scale(1.1);
+}
+
+.main_Section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.main_Section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.main_Section .content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    text-align: center;
+}
+
+.logo-text {
+    font-size: 24px; /* Adjust size as needed */
+    font-weight: bold;
+    color: white;
+    margin-right: auto;
+    padding: 10px 20px; /* Add padding for spacing */
+    background-color: rgba(255, 255, 255, 0.1); /* Optional: Add a subtle background */
+    border-radius: 5px; /* Optional: Add rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.logo-text:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Change background on hover */
+}
+
+.main_Section{
+
+}
